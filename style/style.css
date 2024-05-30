@@ -1,0 +1,519 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images//camping.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.logo {
+  font-family: "Montserrat", sans-serif; /* Use Montserrat font family */
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Use 'bold' or 'normal' based on the desired weight */
+  color: #333; /* Set text color */
+  text-transform: uppercase; /* Transform text to uppercase */
+  letter-spacing: 2px; /* Add letter spacing for better readability */
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  padding: 10px 20px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  margin-bottom: 3%;
+}
+
+.navbar .nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+/* Additional styling for a logo container */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.SIgnIn-button {
+  background-color: #b3ae16;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #333;
+  text-decoration: none;
+}
+
+.notification {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Custom CSS for icon styling */
+.icon {
+  padding: 10px; /* Padding around the icon */
+  background-color: #b3ae16; /* Blue background color */
+  color: #fff; /* White icon color */
+  border-radius: 50%; /* Rounded border */
+  border: 2px solid #7b7811; /* Blue border */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 10px; /* Spacing between icons */
+}
+
+.icon:hover {
+  background-color: #7b7811; /* Darker blue background color on hover */
+  border-color: #7b7811; /* Darker blue border color on hover */
+}
+
+/* style.css */
+
+.contacts {
+  max-height: 350px;
+  overflow-y: auto;
+  position: fixed;
+  bottom: 18%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  padding-top: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contacts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.form-container {
+  position: fixed;
+  bottom: 3%;
+  left: 60%;
+  width: 33%;
+  height: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.form-header {
+  background-color: #b2b06f;
+  position: absolute;
+  top: 2px;
+  left: 40px;
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* CSS to style form-group containing label and input */
+.form-group {
+  margin-bottom: 20px; /* Add margin below each form group */
+}
+
+.form-group label {
+  display: block; /* Display label as block to ensure it's on its own line */
+  margin-bottom: 3px; /* Add spacing below label */
+  font-weight: bold; /* Make label text bold */
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 350px; /* Make input fields 100% width of their container */
+  padding: 10px; /* Add padding inside input fields */
+  border: 1px solid #ccc; /* Add border around input fields */
+  border-radius: 4px; /* Add border radius to input fields */
+}
+
+.form-group button {
+  background-color: #b3ae16;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+/* Add outline to the contactForm */
+#contactForm {
+  border: 2px solid #625f0c; /* Set border to solid style with blue color */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+  padding: 20px 40px; /* Optional: Add padding inside the form */
+}
+
+#updateForm {
+  border: 2px solid #625f0c; /* Set border to solid style with blue color */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+  padding: 20px 40px; /* Optional: Add padding inside the form */
+}
+/* Style for the Delete All Confirmation Modal */
+#deleteAllConfirmationModal {
+  display: none; /* Initially hide the modal */
+  position: fixed; /* Fixed position to overlay on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 999; /* Ensure modal appears on top of other content */
+}
+
+/* Style for the Modal Content */
+#deleteAllConfirmationModal .modal-content {
+  background-color: #fff; /* White background for modal content */
+  width: 400px; /* Width of the modal */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect for the modal */
+  border-radius: 5px; /* Rounded corners */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the modal using translate */
+}
+
+/* Style for the Close Button (X) */
+#deleteAllConfirmationModal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+}
+
+/* Style for the Modal Heading */
+#deleteAllConfirmationModal h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for the Modal Paragraph */
+#deleteAllConfirmationModal p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Style for the Confirm Button */
+#deleteAllConfirmationModal #confirmDeleteAllBtn {
+  padding: 10px 20px;
+  background-color: #625f0c; /* Red background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hover effect for the Confirm Button */
+#deleteAllConfirmationModal #confirmDeleteAllBtn:hover {
+  background-color: #625f0c; /* Darker red on hover */
+}
+
+/* Styling for contact items */
+.contact-item {
+  width: 350px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #625f0c78;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-item:hover {
+  background-color: #8b870d; /* Change background color on hover */
+}
+
+.contact-item.selected {
+  background-color: #625f0c; /* Change background color when selected */
+  color: #fff; /* Text color for selected item */
+}
+
+.user-details {
+  position: fixed;
+  bottom: 10%;
+  left: 60%;
+  width: 33%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.user-details button {
+  background-color: #b3ae16;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+.editContainer {
+  position: fixed;
+  bottom: 3%;
+  left: 60%;
+  width: 33%;
+  height: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal container */
+#deleteConfirmationModal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  overflow: auto;
+}
+
+/* Modal content */
+#deleteConfirmationModal .modal-content {
+  background-color: #fff; /* White background for modal content */
+  width: 400px; /* Width of the modal */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect for the modal */
+  border-radius: 5px; /* Rounded corners */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the modal using translate */
+}
+
+/* Close button (X) */
+#deleteConfirmationModal .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#deleteConfirmationModal .close:hover,
+#deleteConfirmationModal .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal title */
+#deleteConfirmationModal h2 {
+  margin-top: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Modal message */
+#deleteConfirmationModal p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Confirm button */
+#deleteConfirmationModal #confirmDeleteBtn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  /* background-color: #dc3545;  */
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  background-color: #625f0c; /* Red background color */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#deleteConfirmationModal #confirmDeleteBtn:hover {
+  background-color: #625f0c; /* Darker red on hover */
+}
+
+/* Close icon styles */
+#userDetailsContainer .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+#userDetailsContainer .close:hover {
+  color: black;
+}
+
+/* Close icon styles */
+#contactFormContainer .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+#contactFormContainer .close:hover {
+  color: black;
+}
+
+/* Close icon styles */
+#formContainer .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+#formContainer .close:hover {
+  color: black;
+}
+
+#noContactsModal {
+  display: none; /* Initially hide the modal */
+  position: fixed; /* Fixed position to overlay on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 999; /* Ensure modal appears on top of other content */
+}
+
+#UserExistsModal {
+  display: none; /* Initially hide the modal */
+  position: fixed; /* Fixed position to overlay on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 999; /* Ensure modal appears on top of other content */
+}

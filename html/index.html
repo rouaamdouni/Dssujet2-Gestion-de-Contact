@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="../style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Include Font Awesome -->
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-container">
+          <span class="logo">Tunisian's Campers</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li>
+            <button class="SIgnIn-button">
+              <a href="#">Sign In</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="management">
+      <!-- Panel pour la gestion Ajout et supression des Contacts -->
+      <div>
+        <h1>Gérer la liste des contacts</h1>
+      </div>
+      <div>
+        <div class="nav-icons">
+          <i class="fas fa-plus icon" id="addIcon"></i>
+          <!-- Add Icon -->
+          <i class="fas fa-trash icon" id="deleteAllIcon"></i>
+          <!-- Delete All Icon -->
+        </div>
+      </div>
+    </div>
+
+      <!-- End -->
+      <!-- List of contacts -->
+    <div class="">
+      <div class="contacts">
+        <h2 style="padding-top: 50px; ">Liste des contacts enregistrées</h2>
+        <ul id="contactsList"></ul>
+        <!-- No Contacts Message may be displayed if no contact is added -->
+      </div>
+      
+
+      <!--  la form d'ajout des contacts qui est par defaut not diplayed   -->
+      <div class="form-container" id="formContainer" style="display: none; ">
+        <!-- Close icon (X) -->
+        <span class="close" id="closeFormContainer">&times;</span>
+          <!-- End -->
+      
+        <!-- Form for adding new contact (Initially hidden) -->
+        <h2 class="form-header" >Ajouter / Modifier un contact</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="civility">Civilité:</label>
+            <select id="addCivility" name="addCivility">
+              <option value="Madame">Madame</option>
+              <option value="Mademoiselle">Mademoiselle</option>
+              <option value="Monsieur">Monsieur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="firstName">Prénom:</label>
+            <input type="text" id="addFirstName" name="addFirstName" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom:</label>
+            <input type="text" id="addLastName" name="addLastName" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Numéro de téléphone:</label>
+            <input type="text" id="addPhone" name="addPhone" required />
+          </div>
+          <div class="form-group">
+            <button type="submit" id="saveContactBtn">Enregistrer</button>
+            <button type="button" id="resetFormBtn">Effacer</button>
+          </div>
+        </form>
+      </div>
+      
+
+      <!-- User Details Container -->
+      <div id="userDetailsContainer" class="user-details" style="display: none">
+        <div class="user-details-card">
+          <h2>Détails du contact</h2>
+          <span class="close" id="closeUserDetails">&times;</span>
+          <!-- Close icon (X) -->
+          <div id="userDetails"></div>
+          <button id="editUserBtn">Modifier l'utilisateur</button>
+        </div>
+      </div>
+
+      <!-- Contact Form Container for Editing -->
+      <div id="contactFormContainer" class="form-container" style="display: none">
+        <h2 class="form-header" >Ajouter / Modifier un contact</h2>
+        <span class="close" id="closeContactForm">&times;</span> <!-- Close icon (X) -->
+        <form id="updateForm">
+          <div class="form-group">
+            <label for="editCivility">Civilité:</label>
+            <select id="editCivility" name="editCivility">
+              <option value="Madame">Madame</option>
+              <option value="Mademoiselle">Mademoiselle</option>
+              <option value="Monsieur">Monsieur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editFirstName">Prénom:</label>
+            <input type="text" id="editFirstName" name="editFirstName" required />
+          </div>
+          <div class="form-group">
+            <label for="editLastName">Nom:</label>
+            <input type="text" id="editLastName" name="editLastName" required />
+          </div>
+          <div class="form-group">
+            <label for="editPhone">Numéro de téléphone:</label>
+            <input type="text" id="editPhone" name="editPhone" required />
+          </div>
+          <div class="form-group">
+            <button type="submit" id="saveUserBtn">Enregistrer</button>
+            <button type="button" id="deleteUserBtn">Effacer</button>
+          </div>
+        </form>
+      </div>
+      
+    <!-- Confirmation Modal for Contact Deletion -->
+    <div id="deleteConfirmationModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Supprimer ce contact ?</h2>
+        <p>Voulez-vous vraiment supprimer le contact :</p>
+        <p><strong id="deleteUserName"></strong></p>
+        <button id="confirmDeleteBtn" class="button">Confirmer</button>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal for Deleting All Contacts -->
+    <div id="deleteAllConfirmationModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="close" id="cancelDeleteAllBtn">&times;</span>
+      <h2>Supprimer tous les contacts ?</h2>
+      <p>Voulez-vous vraiment supprimer tous les contacts ?</p>
+      <button id="confirmDeleteAllBtn" class="button">Confirmer</button>
+    </div>
+    </div>
+  
+    <!-- No Contacts Warning Model -->
+<div id="noContactsModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>La liste des contacts est vide</p>
+  </div>
+</div>
+
+   <!-- No Contacts Warning Model -->
+   <div id="UserExistsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Un utilisateur avec ce nom et prenom existe déjà.</p>
+    </div>
+  </div>
+
+
+
+    <!-- Notification for Successful Deletion -->
+    <div id="deleteSuccessNotification" class="notification"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../js/app.js"></script>
+
+    <!-- JavaScript to handle form visibility toggle -->
+  
+  </body>
+</html>
